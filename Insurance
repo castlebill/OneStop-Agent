@@ -1,0 +1,166 @@
+### **Agent Name:** OneStop Insurance Agent
+
+**Tagline:** “Smart coverage. Simplified.”
+
+## 🧠 1. **Core Idea**
+
+This agent acts as your **personal insurance advisor and manager** — capable of:
+
+* Comparing insurance plans (motor, health, property, life)
+* Recommending best-fit options
+* Managing renewals and claims
+* Tracking payments
+* Alerting you on policy expiries
+
+---
+
+## 🧩 2. **Agent Workflow (Autonomous Flow)**
+
+### **Step-by-step Agentic Flow**
+
+| Step | Action                        | Agent Behavior                                                     |
+| ---- | ----------------------------- | ------------------------------------------------------------------ |
+| 1️⃣  | **User Intent Understanding** | Extracts user’s need (buy, renew, claim, compare) + insurance type |
+| 2️⃣  | **Information Gathering**     | Asks targeted questions: vehicle details, age, coverage, etc.      |
+| 3️⃣  | **Policy Matching**           | Queries insurer APIs or database (mocked for prototype)            |
+| 4️⃣  | **Recommendation Generation** | Ranks 3–5 options by cost, value, and reliability                  |
+| 5️⃣  | **Action Phase**              | Fills forms, initiates payment, sends documents                    |
+| 6️⃣  | **Follow-up/Reminders**       | Tracks renewal dates and claim status via WhatsApp or dashboard    |
+
+---
+
+## ⚙️ 3. **System Components**
+
+| Layer                  | Description                                                      |
+| ---------------------- | ---------------------------------------------------------------- |
+| **Frontend**           | WhatsApp, Web Chat, or App (text/voice)                          |
+| **Agent Orchestrator** | Routes tasks between Insurance, Finance, and Document sub-agents |
+| **Sub-agents**         | ① Comparison Engine ② Claims Handler ③ Renewal Tracker           |
+| **APIs**               | Insurance APIs (e.g. Jubilee, Britam), M-Pesa for payments       |
+| **Database**           | Stores user policy data, chat logs, preferences                  |
+| **CRM Integration**    | Escalates complex issues to human agent                          |
+
+---
+
+## 🧠 4. **Prompt Engineering (System Prompt Design)**
+
+Here’s the **core system prompt** for the Insurance Agent — designed for reasoning, planning, and autonomous action:
+
+---
+
+### 🧩 **System Prompt: OneStop Insurance Agent**
+
+```
+You are OneStop Insurance Agent — an intelligent, autonomous assistant that helps users manage all their insurance needs in one place.
+
+Your goals:
+1. Understand the user’s intent (buy, compare, renew, claim).
+2. Plan and execute the best course of action using reasoning and context.
+3. Ask only necessary clarifying questions.
+4. Perform actions through APIs, generate summaries, and guide users clearly.
+
+Your tone: friendly, professional, and trustworthy.
+
+You have access to these tools:
+- {ComparePlansAPI}
+- {PolicyDatabase}
+- {M-PesaAPI}
+- {DocumentGenerator}
+- {NotificationService}
+
+Your process:
+1. Parse user intent and insurance type.
+2. Gather key info (e.g., car model, medical history, property value).
+3. Query insurer plans and analyze pros/cons.
+4. Recommend top 3 options based on user’s preferences (cost, coverage, reliability).
+5. If user selects a plan, generate digital policy and process payment.
+6. Add reminders for renewals or claim follow-ups.
+7. Summarize every interaction in a short, clear update.
+
+Always:
+- Confirm before processing payments.
+- Offer clear next steps.
+- Escalate to Human Agent if confidence < 0.6.
+```
+
+---
+
+## 💬 5. **Sample Conversation Flow**
+
+### **Scenario:** User wants to renew motor insurance.
+
+**User:**
+“Hi, I need to renew my car insurance before the month ends.”
+
+**Agent:**
+“Got it! Can you please confirm your car registration number?”
+
+**User:**
+“KDC 874N”
+
+**Agent:**
+“Thanks! I found your last cover with Jubilee Insurance expiring on 29th Oct.
+Would you like to renew the same policy or compare with other providers?”
+
+**User:**
+“Compare with others.”
+
+**Agent:**
+“Here are top 3 motor insurance options for you:
+1️⃣ Jubilee — KES 9,800 (Comprehensive, same as before)
+2️⃣ Britam — KES 9,200 (Comprehensive, includes towing)
+3️⃣ Madison — KES 8,700 (Third-party + theft cover)
+
+Which option would you like to proceed with?”
+
+**User:**
+“Britam looks good.”
+
+**Agent:**
+“Excellent choice. I’ll initiate renewal with Britam.
+Would you like to pay via M-Pesa?”
+
+**User:**
+“Yes.”
+
+**Agent:**
+“Processing... ✅ Payment received.
+Your new cover is active until 21 Oct 2026. I’ve also saved it in your portal and set a renewal reminder.”
+
+---
+
+## 🧱 6. **System Integration Prototype**
+
+| Component           | Example Implementation          |
+| ------------------- | ------------------------------- |
+| **Frontend**        | WhatsApp bot or Web form        |
+| **Backend**         | Node.js / Python Flask API      |
+| **Database**        | PostgreSQL (policy + user data) |
+| **Payment**         | M-Pesa STK Push API             |
+| **AI Engine**       | GPT-based agent orchestrator    |
+| **Document Engine** | PDF generator for policies      |
+| **Notifications**   | Twilio / WhatsApp Cloud API     |
+
+---
+
+## 📊 7. **Performance Metrics**
+
+| KPI                    | Measurement   |
+| ---------------------- | ------------- |
+| Average response time  | < 3 seconds   |
+| Policy conversion rate | 40% target    |
+| User satisfaction      | 90%+ positive |
+| Renewal retention      | 75%           |
+
+---
+
+## 🚀 8. **Next Development Steps**
+
+| Stage       | Action                                                   | Tools                                |
+| ----------- | -------------------------------------------------------- | ------------------------------------ |
+| **Stage 1** | Build conversational MVP (Chat + Policy Comparison Mock) | WhatsApp Cloud API + GPT + JSON Mock |
+| **Stage 2** | Add M-Pesa + Document automation                         | Python or Node backend               |
+| **Stage 3** | Integrate real insurer APIs                              | Britam, Jubilee                      |
+| **Stage 4** | Add voice & multilingual support                         | Twilio Voice + Kiswahili/English     |
+| **Stage 5** | Expand to cross-domain agents (finance, property)        | OneStop Orchestrator                 |
+
